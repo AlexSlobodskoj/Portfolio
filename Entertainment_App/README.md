@@ -1,4 +1,4 @@
-# Исследование приложения Procrastinate Pro+
+# Исследование приложения Procrastinate Pro+ (учебный проект)
 
 [Исследование в HTML](https://alexslobodskoj.github.io/Portfolio/Entertainment_App/entertainment_app.html)
 
