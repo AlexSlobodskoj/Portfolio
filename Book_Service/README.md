@@ -4,7 +4,7 @@
 
 [Анализ сервиса в Jupyter Notebook](https://github.com/AlexSlobodskoj/Portfolio/blob/main/Book_Service/book_service.ipynb)
 
-## Цель исследования
+## Цель анализа
 
 Проанализировать базу данных о книгах, издательствах, авторах, пользовательских обзорах и оценках книг
 
