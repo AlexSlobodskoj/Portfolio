@@ -1,4 +1,4 @@
-# Исследование рынка заведений общественного питания Москвы
+# Исследование рынка заведений общественного питания Москвы (учебный проект)
 
 [Исследование в HTML](https://alexslobodskoj.github.io/Portfolio/Food_places_Moscow/food_places_Moscow.html)
 
