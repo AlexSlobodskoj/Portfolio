@@ -1,4 +1,4 @@
-# Анализ оттока клиентов банка
+# Анализ сервиса для чтения книг по подписке
 
 [Анализ сервиса в HTML](https://alexslobodskoj.github.io/Portfolio/Book_Service/book_service.html)
 
