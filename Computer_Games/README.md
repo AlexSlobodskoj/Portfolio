@@ -1,4 +1,4 @@
-# Исследование продаж компьютерных игр
+# Исследование продаж компьютерных игр (учебный проект)
 
 [Исследование в HTML](https://alexslobodskoj.github.io/Portfolio/Computer_Games/computer_games.html)
 
