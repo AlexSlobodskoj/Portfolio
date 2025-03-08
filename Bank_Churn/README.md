@@ -1,4 +1,4 @@
-# Анализ оттока клиентов банка
+# Анализ оттока клиентов банка (учебный проект)
 
 [Анализ оттока клиентов банка в HTML](https://alexslobodskoj.github.io/Portfolio/Bank_Churn/bank_churn.html)
 
