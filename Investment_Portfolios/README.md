@@ -1,3 +1,26 @@
-[Визуализация в Tableau](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios)
 
-[Визуализация в DataLens](https://datalens.yandex/ifh6gonzmke44)
+# Создание дашбордов инвестиционных портфелей
+
+[Визуализация в Tableau для англоязычных клиентов ](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios)
+
+[Визуализация в DataLens для русскоязычных клиентов](https://datalens.yandex/ifh6gonzmke44)
+
+## Цель исследования
+
+Приоритизировать гипотезы и проанализировать результаты A/B-теста
+
+## Навыки и инструменты
+
+- **python**
+- **pandas**
+- **matplotlib**
+- **seaborn**
+- **numpy**
+- scipy.stats.**mannwhitneyu**
+
+## Результаты
+
+- выбраны перспективные гипотезы по фреймворкам ICE / RICE
+- тест признан успешным - группа В приносит больше выручки, чем группа А
+- дана рекомендация по улучшению системы сплитования
+- предложено тестирование гипотезы по увеличению среднего чека 
