@@ -1,5 +1,3 @@
-
-
 # Исследование продаж компьютерных игр
 
 [Исследование в HTML](https://alexslobodskoj.github.io/Portfolio/Computer_Games/computer_games.html)
