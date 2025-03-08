@@ -1,4 +1,4 @@
-# Исследование для кредитного скоринга банка
+# Исследование для кредитного скоринга банка (учебный проект)
 
 [Исследование в HTML](https://alexslobodskoj.github.io/Portfolio/Credit_Bank/credit_score.html)
 
