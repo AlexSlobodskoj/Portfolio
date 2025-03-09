@@ -1,4 +1,3 @@
-
 # Создание дашбордов инвестиционных портфелей
 
 [Визуализация в Tableau для англоязычных клиентов ](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios)
