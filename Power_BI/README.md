@@ -3,6 +3,7 @@
 ## Навыки и инструменты
 
 - **Excel**
+- **Google Sheets**
 - **Power Query**
 - **Power Pivot**
 - **DAX**
