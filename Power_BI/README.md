@@ -6,4 +6,3 @@
 - **Power Query**
 - **Power Pivot**
 - **DAX**
-
