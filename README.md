@@ -4,7 +4,8 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Инвестиционные портфели для нерезидентов США](https://bit.ly/4kIo2xa) | Дашборд для русскоговорящих клиентов | Google Sheets, Power Query, Power Pivot, Power BI |
+| 1.   | [Монетизация сайта](https://app.powerbi.com/view?r=eyJrIjoiMGNhOGYxMDMtZmYwNi00ZGEwLWJjNmMtNGMxNWVlNmEwMzhmIiwidCI6ImQxZDAyMDNiLTM4ZjMtNDU1MS05MzU5LWJkNzkyMGI2Y2M0OSIsImMiOjN9) | Для внутреннего подразделения маркетинга | Power BI, Google Sheets, API |
+| 1.   | [Инвестиционные портфели для нерезидентов США](https://bit.ly/4kIo2xa) | Дашборд для русскоговорящих клиентов | Power BI, Power Query, Power Pivot, Google Sheets |
 | 2.   | [Продажи интернет магазина](https://datalens.yandex/sobjbq3gy554e) | Учебный проект. <br/>Дашборд для компьютерного интернет-магазина | DataLens, PostgreSQL |
 | 3.   | [Investment portfolios for non-US residents](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios) | Dashboard for english-speaking clients | Tableau, Google Sheets |
 | 4.   | [Инвестиционные портфели для нерезидентов США](https://datalens.yandex/ifh6gonzmke44) | Дашборд для русскоговорящих клиентов | DataLens, Google Sheets |
