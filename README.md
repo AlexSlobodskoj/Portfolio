@@ -4,7 +4,7 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, HTML, Tilda |
+| 1.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
 | 2.   | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
 | 3.   | Монетизация сайта [светлая тема](https://datalens.yandex/gs9bv4zl10682?_theme=light) и [тёмная тема](https://datalens.yandex/gs9bv4zl10682?_theme=dark) | Для внутреннего подразделения маркетинга | DataLens, Google Sheets |
 | 4.   | [Монетизация сайта](https://app.powerbi.com/view?r=eyJrIjoiNjc1ODg4ZDUtMmFlOS00MWU0LWI3ZDMtNDdmYTRhOGIyNzYyIiwidCI6ImQxZDAyMDNiLTM4ZjMtNDU1MS05MzU5LWJkNzkyMGI2Y2M0OSIsImMiOjN9) | Для внутреннего подразделения маркетинга | Power BI, Google Sheets, API |
