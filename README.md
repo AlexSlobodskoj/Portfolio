@@ -4,7 +4,7 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/BigMoneyPoll) | Research for English-speaking customers | Tableau, Google Sheets |
+| 1.   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
 | 2.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
 | 3.   | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
 | 4.   | Монетизация сайта [светлая тема](https://datalens.yandex/gs9bv4zl10682?_theme=light) и [тёмная тема](https://datalens.yandex/gs9bv4zl10682?_theme=dark) | Для внутреннего подразделения маркетинга | DataLens, Google Sheets |
