@@ -9,7 +9,7 @@
 | 3.   | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
 | 4.   | Монетизация сайта [светлая тема](https://datalens.yandex/gs9bv4zl10682?_theme=light) и [тёмная тема](https://datalens.yandex/gs9bv4zl10682?_theme=dark) | Для внутреннего подразделения маркетинга | DataLens, Google Sheets |
 | 5.   | [Монетизация сайта](https://app.powerbi.com/view?r=eyJrIjoiNjc1ODg4ZDUtMmFlOS00MWU0LWI3ZDMtNDdmYTRhOGIyNzYyIiwidCI6ImQxZDAyMDNiLTM4ZjMtNDU1MS05MzU5LWJkNzkyMGI2Y2M0OSIsImMiOjN9) | Для внутреннего подразделения маркетинга | Power BI, Google Sheets, API |
-| 6.   | [Investment portfolios for non-US residents](https://bit.ly/4kIo2xa) | For English-speaking investors | Power BI, Power Query, Power Pivot, Google Sheets |
+| 6.   | [Investment portfolios for non-US residents](https://bit.ly/4kIo2xa) | For English-speaking clients | Power BI, Power Query, Power Pivot, Google Sheets |
 | 7.   | [Продажи интернет магазина](https://datalens.yandex/sobjbq3gy554e) | Учебный проект. <br/>Дашборд для компьютерного интернет-магазина | DataLens, PostgreSQL |
 | 8.   | [Investment portfolios for non-US residents](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios) | Dashboard for english-speaking clients | Tableau, Google Sheets |
 | 9.   | [Инвестиционные портфели для нерезидентов США](https://datalens.yandex/ifh6gonzmke44) | Дашборд для русскоговорящих клиентов | DataLens, Google Sheets |
