@@ -1,11 +1,11 @@
-# Настройки Google Tag Manager для веб-сайта
+# Google Tag Manager settings for a website
 
-## Цели
+## Goals
 
-- уменьшить время открытия страниц сайта
-- сократить расходы на некачественные рекламные источники
+- reduce the opening time of the site pages
+- cut costs on low-quality advertising sources
 
-## Навыки и инструменты
+## Skills and tools
 
 - **Tilda**
 - **Google Tag Manager**
@@ -14,8 +14,8 @@
 - **HTML**
 
 
-## Результаты
+## Results
 
-- в контейнере **24** тега, **13** триггеров и **12** переменных
-- время открытия страниц сайта уменьшилось почти в **2 раза**
-- расходы на некачественные источники снизились практически до нуля
+- in the container **24** tags, **13** triggers and **12** variables
+- the opening time of the site pages decreased by almost **2 times**
+- the costs of low-quality sources have dropped to almost zero
