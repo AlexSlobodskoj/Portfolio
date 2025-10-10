@@ -8,7 +8,7 @@
 | 2.   | [Educational attainment US](https://public.tableau.com/app/profile/alex.slobodskoj/viz/EducationalattainmentUSwithtooltip/Dashboard) | Dashboard for the portfolio | Tableau, Excel |
 | 3.   | [Map Layers](https://public.tableau.com/app/profile/alex.slobodskoj/viz/MapLayers_17584514022150/MapLayersDZV) | Dashboard for the portfolio | Tableau, Excel |
 | 4.   | [Chart Swapping with DZV](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
-| 5.   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | python, PostgreSQL, Google Sheets, Tableau |
+| 5.   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | Tableau, python, PostgreSQL, Google Sheets |
 | 6.   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
 | 7.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
 | 8.   | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
