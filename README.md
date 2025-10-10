@@ -4,7 +4,7 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Rats in New York](https://public.tableau.com/app/profile/alex.slobodskoj/viz/RatsinNewYork_17596759716940/Dashboard1) | Black & White dashboard for the portfolio | Tableau, Excel |
+| 1.   | [Rats in New York](https://public.tableau.com/app/profile/alex.slobodskoj/viz/RatsinNewYork_17596759716940/Dashboard1) | Black&White dashboard for the portfolio | Tableau, Excel |
 | 2.   | [Educational attainment US](https://public.tableau.com/app/profile/alex.slobodskoj/viz/EducationalattainmentUSwithtooltip/Dashboard) | Dashboard for the portfolio | Tableau, Excel |
 | 3.   | [Map Layers](https://public.tableau.com/app/profile/alex.slobodskoj/viz/MapLayers_17584514022150/MapLayersDZV) | Dashboard for the portfolio | Tableau, Excel |
 | 4.   | [Chart Swapping with DZV](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
