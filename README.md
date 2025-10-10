@@ -4,7 +4,9 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Chart Swapping with Dynamic Zone Visibility](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
+
+| 1.   | [Map Layers](https://public.tableau.com/app/profile/alex.slobodskoj/viz/MapLayers_17584514022150/MapLayersDZV) | Dashboard for the portfolio | Tableau, Excel |
+| 1.   | [Chart Swapping with DZV](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
 | 2.   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | python, PostgreSQL, Google Sheets, Tableau |
 | 3.   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
 | 4.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
