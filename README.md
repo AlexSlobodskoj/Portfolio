@@ -4,6 +4,8 @@
 
 | #    | Наименование проекта                | Описание                                                     | Стек                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1.   | [25-year Risk-Return profile by Asset Class](https://public.tableau.com/app/profile/alex.slobodskoj/viz/PortfolioReturnVolatility/Dashboard) | Risk-return analysis of asset classes and a set of model investment portfolios from 2001 to 2025 | Tableau, Excel |
+| 1.   | [Unofficial House M.D. Soundtrack](https://public.tableau.com/app/profile/alex.slobodskoj/viz/HouseM_D_Soundtracks/Dashboard) | Featuring 415 music tracks. Сlick any row or thumbnail in the table and select '🎧 Listen' to play the track via Spotify or YouTube. | Tableau, Google Sheets |
 | 1.   | [Efficiency of adv placements filtering](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Efficiencyofadvplacementsfiltering/Dashboard) | For monitoring as part of a case “Increasing ROAS from advertising in Yandex Advertising Network”. | Tableau, Google Sheets |
 | 1.   | [Sales Team Leaderboard](https://public.tableau.com/app/profile/alex.slobodskoj/viz/SalesTeamLeaderboard_17606998047050/Dashboard) | Which sales managers are best at selling tea and coffee? In which US states? | Tableau, Excel |
 | 1.   | [Rats in New York](https://public.tableau.com/app/profile/alex.slobodskoj/viz/RatsinNewYork_17596759716940/Dashboard1) | Black&White dashboard for the portfolio | Tableau, Excel |
