@@ -1,34 +1,32 @@
-# Portfolio
+## Portfolio
+Here is a collection of some of my completed projects. Newest projects are at the top.
 
-Here is a collection of some of our completed projects
-
-| #    | Наименование проекта                | Описание                                                     | Стек                                                         |
-| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [Top buyers of US oil & petroleum products](https://public.tableau.com/app/profile/alex.slobodskoj/viz/TopBuyersofUSOil/Dashboard) | The dashboard features a dynamic comparison between 2025 and 2024 | Claude, Python, CSV, Tableau |
-| 2.   | [The Periodic Table of AI Startups](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ThePeriodicTableofAIStartups/Dashboard) | 305 AI startups that raised funding between Feb 2025 and Feb 2026 into 14 categories | Tableau, CSV |
-| 3.   | [Startup Funding and Outcome](https://public.tableau.com/app/profile/alex.slobodskoj/viz/StartupsFundingandOutcome/Dashboard) | Simulated data of 100,000 companies for predicting IPO, Acquisition or Failure. Analyzing the Phik Correlation matrix and outcome distributions | Python, Tableau, PostgreSQL |
-| 4.   | [25-year Risk-Return profile by Asset Class](https://public.tableau.com/app/profile/alex.slobodskoj/viz/PortfolioReturnVolatility/Dashboard) | Risk-return analysis of asset classes and a set of model investment portfolios from 2001 to 2025 | Tableau, Excel |
-| 5.   | [Unofficial House M.D. Soundtrack](https://public.tableau.com/app/profile/alex.slobodskoj/viz/HouseM_D_Soundtracks/Dashboard) | Featuring 415 music tracks. Сlick any row or thumbnail in the table and select '🎧 Listen' to play the track via Spotify or YouTube. | Tableau, Google Sheets |
-| 6.   | [Efficiency of adv placements filtering](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Efficiencyofadvplacementsfiltering/Dashboard) | For monitoring as part of a case “Increasing ROAS from advertising in Yandex Advertising Network”. | Tableau, Google Sheets |
-| 7.   | [Sales Team Leaderboard](https://public.tableau.com/app/profile/alex.slobodskoj/viz/SalesTeamLeaderboard_17606998047050/Dashboard) | Which sales managers are best at selling tea and coffee? In which US states? | Tableau, Excel |
-| 8.   | [Rats in New York](https://public.tableau.com/app/profile/alex.slobodskoj/viz/RatsinNewYork_17596759716940/Dashboard1) | Black&White dashboard for the portfolio | Tableau, Excel |
-| 9.   | [Educational attainment US](https://public.tableau.com/app/profile/alex.slobodskoj/viz/EducationalattainmentUSwithtooltip/Dashboard) | Dashboard for the portfolio | Tableau, Excel |
-| 10.   | [Map Layers](https://public.tableau.com/app/profile/alex.slobodskoj/viz/MapLayers_17584514022150/MapLayersDZV) | Dashboard for the portfolio | Tableau, Excel |
-| 11.   | [Chart Swapping with DZV](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
-| 12.   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | Tableau, Python, PostgreSQL, Google Sheets |
-| 13.   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
-| 14.   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
-| 15.   | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
-| 16.   | Монетизация сайта [светлая тема](https://datalens.yandex/gs9bv4zl10682?_theme=light) и [тёмная тема](https://datalens.yandex/gs9bv4zl10682?_theme=dark) | Для внутреннего подразделения маркетинга | DataLens, Google Sheets |
-| 17.   | [Монетизация сайта](https://app.powerbi.com/view?r=eyJrIjoiNjc1ODg4ZDUtMmFlOS00MWU0LWI3ZDMtNDdmYTRhOGIyNzYyIiwidCI6ImQxZDAyMDNiLTM4ZjMtNDU1MS05MzU5LWJkNzkyMGI2Y2M0OSIsImMiOjN9) | Для внутреннего подразделения маркетинга | Power BI, Google Sheets, API |
-| 18.   | [Investment portfolios for non-US residents](https://bit.ly/4kIo2xa) | For English-speaking clients | Power BI, Power Query, Power Pivot, Google Sheets |
-| 19.   | [Продажи интернет магазина](https://datalens.yandex/sobjbq3gy554e) | Учебный проект. <br/>Дашборд для компьютерного интернет-магазина | DataLens, PostgreSQL |
-| 20.   | [Investment portfolios for non-US residents](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Investmentportfoliosfornon-USresidents/portfolios) | Dashboard for english-speaking clients | Tableau, Google Sheets |
-| 21.   | [Инвестиционные портфели для нерезидентов США](https://datalens.yandex/ifh6gonzmke44) | Дашборд для русскоговорящих клиентов | DataLens, Google Sheets |
-| 22.   | [Исследование TED-конференций](https://github.com/AlexSlobodskoj/Portfolio/tree/main/TED_conferences) | Учебный проект. <br/>Визуализация истории выступлений | Tableau, DataLens |
-| 23.   | [Анализ оттока клиентов банка](https://github.com/AlexSlobodskoj/Portfolio/tree/main/Bank_Churn) | Учебный проект. <br/>Выделение сегментов клиентов, склонных уходить из банка | python, pandas, seaborn, numpy, scipy, statsmodels, matplotlib, Tableau |
-| 24.   | [Анализ сервиса для чтения книг](https://github.com/AlexSlobodskoj/Portfolio/tree/main/Book_Service) | Учебный проект. <br/>Обзор базы данных о книгах, издательствах, авторах, пользовательских обзорах и оценках | python, pandas, sqlalchemy, PostgreSQL |
-| 25.   | [Исследование рынка заведений общественного питания](https://github.com/AlexSlobodskoj/Projects/tree/main/Food_places_Moscow) | Учебный проект. <br/>Поиск интересных особенностей и презентация для инвесторов | python, pandas, seaborn, numpy, folium, matplotlib, scipy, Tableau |
-| 26.   | [Инвестиционный портфель №1](https://invest-adviser.com/investments/portfolio1) | Описание и визуализация изменения стоимости | Tilda, HighCharts, Google Sheets, JavaScript |
-| 27.   | [Веб-аналитика](https://github.com/AlexSlobodskoj/Projects/tree/main/Tag_Manager) | Настройки для увеличения скорости работы сайтов и фильтрации некачественного трафика | Google TagManager, Google Analytics, JavaScript |
-| 28.  | [Исследование А/В теста](https://github.com/AlexSlobodskoj/Portfolio/tree/main/Hypothesis_AB-test) | Учебный проект. <br/>Приоритизация гипотез и анализ результатов | python, pandas, seaborn, numpy, scipy, matplotlib, |
+| Status | Project Name | Description | Tech Stack |
+|---|---|---|---|
+| 🆕 | Data Transformation Framework | Reddit & Startup Analytics: End-to-end dbt pipelines with Medallion architecture. Features custom data drift testing, automated SQL validation, and multi-layer business logic. | Jinja/SQL, dbt-core, dbt_utils, PostgreSQL |
+| 📊 | Top buyers of US oil & petroleum products | Dynamic comparison between 2025 and 2024 with complex year-over-year calculations. | Claude, Python, CSV, Tableau |
+| 📊 | The Periodic Table of AI Startups | Segmentation of 305 AI startups into 14 categories based on funding data (Feb 2025 - Feb 2026). | Tableau, CSV |
+| 📊 | Startup Funding and Outcome | Predictive analysis on 100k companies. Features Phik Correlation matrix and outcome probability distributions. | Python, Tableau, PostgreSQL |
+| 📈 | 25-year Risk-Return profile by Asset Class | Asset class performance analysis and model investment portfolios from 2001 to 2025. | Tableau, Excel |
+| 🎵 | Unofficial House M.D. Soundtrack | Interactive table featuring 415 tracks with direct Spotify/YouTube playback integration. | Tableau, Google Sheets |
+| 🎯 | Efficiency of adv placements filtering | ROAS monitoring for advertising campaigns in Yandex Advertising Network. | Tableau, Google Sheets |
+| 🏆 | Sales Team Leaderboard | Performance dashboard for sales managers across US states. | Tableau, Excel |
+| 🏙️ | Rats in New York | Black & White themed geospatial analysis for NYC data. | Tableau, Excel |
+| 🎓 | Educational attainment US | Demographic educational data visualization with custom tooltips. | Tableau, Excel |
+| 🗺️ | Map Layers | Advanced map layering techniques in Tableau. | Tableau, Excel |
+| 🔄 | Chart Swapping with DZV | Cross-device (Desktop & Mobile) dashboard featuring dynamic zone visibility. | Tableau, Excel |
+| 🛒 | Tools Shop | Marketing department dashboard for e-commerce performance tracking. | Tableau, Python, PostgreSQL, Google Sheets |
+| 🗳️ | Big Money Poll spring 2025 | Financial markets research for international clients. | Tableau, Google Sheets |
+| 📰 | Financial Manager Survey (USA) | Professional publication for an investment department. | Tableau, GS, JS, Tilda |
+| 💰 | Website monetization | Investment-focused dashboard for revenue stream analysis. | Tableau, Google Sheets |
+| 🌓 | Website Monetization Light & Dark | Internal marketing dashboards with theme switching. | DataLens, Google Sheets |
+| 📊 | Website Monetization (Power BI) | Power BI implementation of e-commerce metrics. | Power BI, Google Sheets, API |
+| 💼 | Investment portfolios (Non-US) | Complex portfolio management dashboard for international residents. | Power BI, Power Query, Power Pivot |
+| 🖥️ | Online Store Sales | Comprehensive dashboard for a computer hardware retailer. | DataLens, PostgreSQL |
+| 🏢 | TED Conferences Research | History and trends of TED talks over the years. | Tableau, DataLens |
+| 🏦 | Bank Churn Analysis | Customer segmentation and churn prediction for banking services. | Python, Pandas, Statsmodels, Tableau |
+| 📚 | Book Reading Service | Database analysis of books, publishers, and user reviews. | Python, SQLalchemy, PostgreSQL |
+| 🍕 | Food Market Research | Moscow catering market analysis for potential investors. | Python, Folium, SciPy, Tableau |
+| 📈 | Investment Portfolio №1 | Real-time tracking of portfolio value changes. | Tilda, HighCharts, JavaScript |
+| 🕸️ | Web Analytics Setup | Advanced tracking configuration for traffic filtering and speed optimization. | GTM, GA, JavaScript |
+| 🧪 | A/B Test Investigation | Hypothesis prioritization and statistical analysis of test results. | Python, Pandas, SciPy, Matplotlib |

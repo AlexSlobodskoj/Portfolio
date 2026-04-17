@@ -1,4 +1,4 @@
-# Data Transformation Portfolio (dbt Projects)
+# Data Transformation
 
 Welcome to my dbt (data build tool) portfolio. This repository contains end-to-end data transformation pipelines that turn raw data into clean, business-ready analytics layers using modern data engineering practices.
 

@@ -17,3 +17,7 @@ This project transforms raw startup data into a multi-layered analytical model t
 ## Key Business Metrics
 - Success rate by Sector and Team Category.
 - Distribution of successful exits (IPO/Acquisition) across Revenue Stages.
+
+## Tech Stack
+- **dbt Core** (Jinja/SQL)
+- **PostgreSQL**
