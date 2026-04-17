@@ -20,7 +20,6 @@ Here is a collection of some of our completed projects
 | 💰   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
 | 📋   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
 | 💵  | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
-| 🌗   | Монетизация сайта [светлая тема](https://datalens.yandex/gs9bv4zl10682?_theme=light) и [тёмная тема](https://datalens.yandex/gs9bv4zl10682?_theme=dark) | Для внутреннего подразделения маркетинга | DataLens, Google Sheets |
 | 📊   | [Монетизация сайта](https://app.powerbi.com/view?r=eyJrIjoiNjc1ODg4ZDUtMmFlOS00MWU0LWI3ZDMtNDdmYTRhOGIyNzYyIiwidCI6ImQxZDAyMDNiLTM4ZjMtNDU1MS05MzU5LWJkNzkyMGI2Y2M0OSIsImMiOjN9) | Для внутреннего подразделения маркетинга | Power BI, Google Sheets, API |
 | 🌍   | [Investment portfolios for non-US residents](https://bit.ly/4kIo2xa) | For English-speaking clients | Power BI, Power Query, Power Pivot, Google Sheets |
 | 🛒   | [Продажи интернет магазина](https://datalens.yandex/sobjbq3gy554e) | Учебный проект. <br/>Дашборд для компьютерного интернет-магазина | DataLens, PostgreSQL |
