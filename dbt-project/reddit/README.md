@@ -1,15 +1,21 @@
-Welcome to your new dbt project!
+# Reddit Sentiment & Activity Analysis (dbt Project)
 
-### Using the starter project
+## Overview
+This project processes raw data from Reddit to track subreddit activity and stock-related discussions. It features a robust data quality framework to detect discrepancies between external API metrics and internal row counts.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Key Features
+- **Data Integration**: Unifies posts and comments into a consolidated fact table.
+- **Advanced Data Quality**: 
+    - **Drift Detection**: Custom test using `dbt_utils` to monitor the difference between API-reported `num_comments` and actual database records.
+    - **Temporal Integrity**: Automated checks ensuring all activity dates are within valid ranges (no future dates).
+- **Time-Series Marts**: Daily aggregation layer designed for high-performance Tableau dashboards.
 
+## Analytical Layers
+- **Staging**: Normalizes raw Reddit JSON-like structures into clean relational views.
+- **Marts (`fct_reddit_posts`)**: Joins posts with calculated comment metrics.
+- **Marts (`fct_reddit_daily_activity`)**: Aggregates metrics (scores, post counts) by day and subreddit.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Tech Stack
+- **dbt Core** (Jinja/SQL)
+- **PostgreSQL**
+- **dbt_utils** (Data validation macros)

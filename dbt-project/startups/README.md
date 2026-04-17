@@ -1,15 +1,19 @@
-Welcome to your new dbt project!
+# Startup Success Analysis (dbt Project)
 
-### Using the starter project
+## Overview
+This project transforms raw startup data into a multi-layered analytical model to identify success patterns across industries. It categorizes companies by scale and financial maturity to provide deeper insights into market outcomes.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Analytical Layers
+- **Staging (`stg_startups`)**: Standardizes raw data and ensures data types consistency.
+- **Intermediate (`int_startups_categorized`)**: The core logic layer where startups are segmented:
+    - **Team Size Categorization**: Small (<5), Medium (<20), or Large.
+    - **Revenue Stages**: Classification from 'Pre-revenue' to 'Mature' (10M+).
+- **Marts (`mart_startups`)**: Final business-ready table used for BI reporting and success rate analysis.
 
+## Data Quality & Testing
+- **Validation**: Strict `not_null` constraints on `sector` and `outcome`.
+- **Integrity**: `accepted_values` test ensures startup outcomes strictly follow industry standards: `IPO`, `Acquisition`, or `Failure`.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Key Business Metrics
+- Success rate by Sector and Team Category.
+- Distribution of successful exits (IPO/Acquisition) across Revenue Stages.
