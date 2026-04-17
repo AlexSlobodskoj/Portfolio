@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_startups
+    columns:
+      - name: outcome
+        tests:
+          - not_null
+      - name: sector
+        tests:
+          - not_null

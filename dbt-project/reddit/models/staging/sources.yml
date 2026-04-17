@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    schema: public  # убедись, что это имя схемы в твоей БД
+    tables:
+      - name: reddit_posts
+        description: "raw data posts"
+      - name: reddit_comments
+        description: "raw data comments"

@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: mart_startups
+    columns:
+      - name: is_successful
+        tests:
+          - not_null
+      - name: outcome
+        tests:
+          - accepted_values:
+              values: ['IPO', 'Acquisition', 'Failure']
