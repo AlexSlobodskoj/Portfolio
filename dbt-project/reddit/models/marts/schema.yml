@@ -1,0 +1,34 @@
+models:
+  - name: fct_reddit_posts
+    description: "Fact table with post metrics and calculated comment counts"
+    tests:
+      # Тест на уровне всей таблицы: проверяем разницу между полями
+      - dbt_utils.expression_is_true:
+          name: check_comment_count_drift
+          arguments: # Теперь аргументы пишутся здесь
+            expression: "abs(num_comments - total_comments) <= (num_comments * 0.1) + 1"
+          config:
+            severity: warn
+  - name: fct_reddit_daily_activity
+    description: "Daily aggregated metrics per subreddit and stock ticker for time-series analysis"
+    columns:
+      - name: activity_date
+        description: "The date of the recorded activity"
+        tests:
+          - not_null
+          # Проверка, что дата не из будущего (если dbt_utils установлен)
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "<= current_date"
+
+      - name: subreddit
+        description: "Subreddit name"
+        tests:
+          - not_null
+
+      - name: posts_count
+        description: "Total number of posts on this day"
+        tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
