@@ -1,19 +1,22 @@
 select
-    funding_rounds,
-    founder_experience_years,
-    team_size,
-    team_category,
-    market_size_billion,
-    product_traction_users,
-    burn_rate_million,
-    revenue_million,
-    revenue_stage,
-    investor_type,
-    sector,
-    founder_background,
-    outcome,
+    s.funding_rounds,
+    s.founder_experience_years,
+    s.team_size,
+    s.team_category,
+    s.market_size_billion,
+    s.product_traction_users,
+    s.burn_rate_million,
+    s.revenue_million,
+    s.revenue_stage,
+    s.investor_type,
+    i.investor_type_name,
+    s.sector,
+    s.founder_background,
+    s.outcome,
     case
-        when outcome = 'IPO' or outcome = 'Acquisition' then true
+        when s.outcome in ('IPO', 'Acquisition') then true
         else false
     end as is_successful
-from {{ ref('int_startups_enriched') }}
+from {{ ref('int_startups_enriched') }} s
+left join {{ ref('investor_types') }} i
+    on s.investor_type = i.investor_type
