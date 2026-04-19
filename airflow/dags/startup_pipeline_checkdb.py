@@ -9,7 +9,7 @@ with DAG(
     catchup=False,
     description='dbt pipeline with db check'
 ) as dag:
-
+    # Check if PostgreSQL is available before running dbt
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
@@ -17,7 +17,7 @@ with DAG(
         ),
         execution_timeout=timedelta(minutes=10)
     )
-
+    # Run all dbt models: staging → intermediate → marts
     dbt_run = BashOperator(
         task_id='dbt_run',
         bash_command=(
@@ -27,7 +27,7 @@ with DAG(
         ),
         execution_timeout=timedelta(minutes=10)
     )
-
+    # Run dbt data quality tests after models are built
     dbt_test = BashOperator(
         task_id='dbt_test',
         bash_command=(
@@ -37,5 +37,5 @@ with DAG(
         ),
         execution_timeout=timedelta(minutes=10)
     )
-
+    # Pipeline order: check db → build models → validate data
     check_db >> dbt_run >> dbt_test
