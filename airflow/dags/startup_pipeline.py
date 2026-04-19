@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from datetime import datetime
+from datetime import datetime, timedelta
 
 with DAG(
     dag_id='startup_pipeline',
@@ -17,7 +17,7 @@ with DAG(
             'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
             'dbt run 2>&1'
         ),
-        execution_timeout=None
+        execution_timeout=timedelta(minutes=10)
     )
 
     dbt_test = BashOperator(
@@ -27,7 +27,7 @@ with DAG(
             'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
             'dbt test 2>&1'
         ),
-        execution_timeout=None
+        execution_timeout=timedelta(minutes=10)
     )
 
     dbt_run >> dbt_test
