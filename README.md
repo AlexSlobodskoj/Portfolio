@@ -4,7 +4,8 @@ Here is a collection of some of our completed projects
 
 |     | Project Name                | Description                                                     | Tech Stack                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 🆕   | [Data Transformation](https://github.com/AlexSlobodskoj/Portfolio/tree/main/dbt-project) | Transformation pipelines that turn raw data into analytics layers | Jinja/SQL, dbt-core, dbt_utils, PostgreSQL |
+| 🆕   | [ELT Orchestration](https://github.com/AlexSlobodskoj/Portfolio/tree/main/airflow/dags) | Automated data pipelines and task scheduling for data flow | Apache Airflow, Python, dbt, PostgreSQL |
+| 🛠️   | [Data Transformation](https://github.com/AlexSlobodskoj/Portfolio/tree/main/dbt-project) | Transformation pipelines that turn raw data into analytics layers | Jinja/SQL, dbt-core, dbt_utils, PostgreSQL |
 | 🛢️   | [Top buyers of US oil & petroleum products](https://public.tableau.com/app/profile/alex.slobodskoj/viz/TopBuyersofUSOil/Dashboard) | The dashboard features a dynamic comparison between 2025 and 2024 | Claude, Python, CSV, Tableau |
 | 🤖   | [The Periodic Table of AI Startups](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ThePeriodicTableofAIStartups/Dashboard) | 305 AI startups that raised funding between Feb 2025 and Feb 2026 into 14 categories | Tableau, CSV |
 | 🚀   | [Startup Funding and Outcome](https://public.tableau.com/app/profile/alex.slobodskoj/viz/StartupsFundingandOutcome/Dashboard) | Simulated data of 100,000 companies for predicting IPO, Acquisition or Failure. Analyzing the Phik Correlation matrix and outcome distributions | Python, Tableau, PostgreSQL |
@@ -16,7 +17,7 @@ Here is a collection of some of our completed projects
 | 🎓   | [Educational attainment US](https://public.tableau.com/app/profile/alex.slobodskoj/viz/EducationalattainmentUSwithtooltip/Dashboard) | Dashboard for the portfolio | Tableau, Excel |
 | 🗺️   | [Map Layers](https://public.tableau.com/app/profile/alex.slobodskoj/viz/MapLayers_17584514022150/MapLayersDZV) | Dashboard for the portfolio | Tableau, Excel |
 | 📱   | [Chart Swapping with DZV](https://public.tableau.com/app/profile/alex.slobodskoj/viz/DZVChartSwapping/Desktop) | Desktop & Mobile dashboard for the portfolio | Tableau, Excel |
-| 🛠️   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | Tableau, Python, PostgreSQL, Google Sheets |
+| 🧰   | [Tools Shop](https://public.tableau.com/app/profile/alex.slobodskoj/viz/ToolsShop/ToolsShop) | Dashboard for the marketing department | Tableau, Python, PostgreSQL, Google Sheets |
 | 💰   | [Big Money Poll spring 2025](https://public.tableau.com/app/profile/alex.slobodskoj/viz/BigMoneyPollspring2025/Markets) | Research for English-speaking customers | Tableau, Google Sheets |
 | 📋   | [Результаты опроса финансовых менеджеров США](https://invest-adviser.com/art/finansovie-menedzheri-ssha-prognoziruyut) | Публикация для инвестиционного департамента | Tableau, Google Sheets, JavaScript, Tilda |
 | 💵  | [Website monetization](https://public.tableau.com/app/profile/alex.slobodskoj/viz/Websitemonetization/Monetization) | For English-speaking investors | Tableau, Google Sheets |
