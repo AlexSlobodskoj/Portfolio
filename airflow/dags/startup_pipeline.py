@@ -14,18 +14,20 @@ with DAG(
         task_id='dbt_run',
         bash_command=(
             'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/my_project && '
-            'dbt run'
-        )
+            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'dbt run 2>&1'
+        ),
+        execution_timeout=None
     )
 
     dbt_test = BashOperator(
         task_id='dbt_test',
         bash_command=(
             'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/my_project && '
-            'dbt test'
-        )
+            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'dbt test 2>&1'
+        ),
+        execution_timeout=None
     )
 
     dbt_run >> dbt_test
