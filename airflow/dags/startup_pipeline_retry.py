@@ -42,7 +42,7 @@ with DAG(
         on_failure_callback=notify_slack_failure
     )
 
-    # Run all dbt models: staging → intermediate → marts
+    # Run all dbt models:staging → intermediate → marts
     dbt_run = BashOperator(
         task_id='dbt_run',
         bash_command=(
