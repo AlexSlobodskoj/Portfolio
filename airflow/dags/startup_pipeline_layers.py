@@ -1,4 +1,4 @@
-from airflow import DAG, Dataset
+from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.models import Variable
 from datetime import datetime, timedelta
@@ -22,14 +22,10 @@ def notify_slack_failure(context):
     }
     requests.post(webhook_url, json=message)
 
-DBT_MART_STARTUPS = Dataset("postgres://public/mart_startups")
-DBT_MART_STARTUPS_SECTOR = Dataset("postgres://public/mart_startups_by_sector")
-DBT_MART_STARTUPS_INCREM = Dataset("postgres://public/mart_startups_incremental")
-
 with DAG(
     dag_id='startup_pipeline_layers',
-    schedule=[DBT_MART_STARTUPS, DBT_MART_STARTUPS_SECTOR, DBT_MART_STARTUPS_INCREM],
     start_date=datetime(2024, 1, 1),
+    schedule_interval='0 2 * * *',
     catchup=False,
     description='dbt pipeline with Slack notifications'
 ) as dag:

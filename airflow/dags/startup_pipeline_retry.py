@@ -1,4 +1,4 @@
-from airflow import DAG, Dataset
+from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.models import Variable
 from datetime import datetime, timedelta
@@ -22,14 +22,10 @@ def notify_slack_failure(context):
     }
     requests.post(webhook_url, json=message)
 
-DBT_MART_STARTUPS = Dataset("postgres://public/mart_startups")
-DBT_MART_STARTUPS_SECTOR = Dataset("postgres://public/mart_startups_by_sector")
-DBT_MART_STARTUPS_INCREM = Dataset("postgres://public/mart_startups_incremental")
-
 with DAG(
     dag_id='startup_pipeline_retry',
     start_date=datetime(2024, 1, 1),
-    schedule='0 2 * * *',
+    schedule_interval='0 2 * * *',
     catchup=False,
     description='dbt pipeline with Slack notifications'
 ) as dag:
@@ -71,8 +67,7 @@ with DAG(
         execution_timeout=timedelta(minutes=10),
         retries=3,
         retry_delay=timedelta(minutes=1),
-        on_failure_callback=notify_slack_failure,
-        outlets=[DBT_MART_STARTUPS, DBT_MART_STARTUPS_SECTOR, DBT_MART_STARTUPS_INCREM]
+        on_failure_callback=notify_slack_failure
     )
 
     # Send success notification when all tasks complete
