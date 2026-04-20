@@ -95,5 +95,5 @@ with DAG(
         retry_delay=timedelta(minutes=1)
     )
 
-    # Pipeline order: check db → staging → marts → test → notify
+    # Pipeline order: check db → staging → trigger → test → notify
     check_db >> dbt_run_staging >> trigger_run_pipeline >> dbt_test >> notify_success
