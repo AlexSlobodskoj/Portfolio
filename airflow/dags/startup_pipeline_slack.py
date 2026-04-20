@@ -25,7 +25,7 @@ def notify_slack_failure(context):
 with DAG(
     dag_id='startup_pipeline_slack',
     start_date=datetime(2024, 1, 1),
-    schedule_interval='0 2 * * *',
+    schedule='0 2 * * *',
     catchup=False,
     description='dbt pipeline with Slack notifications'
 ) as dag:
