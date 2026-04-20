@@ -30,7 +30,7 @@ with DAG(
     description='dbt run intermediate & marts'
 ) as dag:
 
-    # Run marts layer models only
+    # Run intermediate layer models only
     dbt_run_int = BashOperator(
         task_id='dbt_run_int',
         bash_command=(
