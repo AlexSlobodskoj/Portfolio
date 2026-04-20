@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 with DAG(
     dag_id='startup_pipeline_checkdb',
     start_date=datetime(2024, 1, 1),
-    schedule_interval='0 2 * * *',
+    schedule='0 2 * * *',
     catchup=False,
     description='dbt pipeline with db check'
 ) as dag:
