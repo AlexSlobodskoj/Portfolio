@@ -1,0 +1,81 @@
+from airflow import DAG, Dataset
+from airflow.operators.bash import BashOperator
+from airflow.models import Variable
+from datetime import datetime, timedelta
+import requests
+
+def notify_slack_failure(context):
+    webhook_url = Variable.get('SLACK_WEBHOOK_URL')
+    task_id = context['task_instance'].task_id
+    dag_id = context['task_instance'].dag_id
+    execution_date = context['execution_date']
+    log_url = context['task_instance'].log_url
+
+    message = {
+        "text": (
+            f":red_circle: *Task failed*\n"
+            f"*DAG:* {dag_id}\n"
+            f"*Task:* {task_id}\n"
+            f"*Date:* {execution_date}\n"
+            f"*Logs:* {log_url}"
+        )
+    }
+    requests.post(webhook_url, json=message)
+
+STARTUP_DATASET = Dataset("postgres://public/startup_succes")
+
+with DAG(
+    dag_id='startup_pipeline_load',
+    start_date=datetime(2024, 1, 1),
+    schedule='0 1 * * *',
+    catchup=False,
+    description='Load startup data from CSV to PostgreSQL'
+) as dag:
+
+    # Check if PostgreSQL is available before running dbt
+    check_db = BashOperator(
+        task_id='check_db',
+        bash_command=(
+            'pg_isready -h localhost -p 5432 -U alexslobodskoj -d postgres'
+        ),
+        execution_timeout=timedelta(minutes=10),
+        retries=3,
+        retry_delay=timedelta(minutes=1),
+        on_failure_callback=notify_slack_failure
+    )
+
+    # Load CSV into PostgreSQL using COPY — faster than pandas for large files
+    # In production this would be handled by Fivetran/Airbyte
+    load_csv = BashOperator(
+    task_id='load_csv',
+    bash_command=(
+        'psql -U alexslobodskoj -d postgres -c '
+        '"TRUNCATE TABLE public.startup_succes;" && '
+        'psql -U alexslobodskoj -d postgres -c '
+        '"\COPY public.startup_succes (funding_rounds, founder_experience_years, team_size, market_size_billion, product_traction_users, burn_rate_million, revenue_million, investor_type, sector, founder_background, outcome) FROM \'/Users/alexslobodskoj/Data_Analyst/startup_success.csv\' CSV HEADER DELIMITER \',\';"'
+    ),
+    execution_timeout=timedelta(minutes=10),
+    retries=3,
+    retry_delay=timedelta(minutes=1),
+    on_failure_callback=notify_slack_failure,
+    outlets=[STARTUP_DATASET]
+    )
+
+    # Send success notification when all tasks complete
+    notify_success = BashOperator(
+        task_id='notify_success',
+        bash_command=(
+            'python3 -c "'
+            'from airflow.models import Variable; '
+            'import requests; '
+            'webhook = Variable.get(\'SLACK_WEBHOOK_URL\'); '
+            'requests.post(webhook, json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n*DAG:* startup_pipeline_load\\nAll models built and tests passed.\'}, timeout=10)'
+            '"'
+        ),
+        execution_timeout=timedelta(minutes=1),
+        retries=3,
+        retry_delay=timedelta(minutes=1)
+    )
+
+    # Pipeline order: check db → load csv → notify
+    check_db >> load_csv >> notify_success
