@@ -23,7 +23,7 @@ def notify_slack_failure(context):
     requests.post(webhook_url, json=message)
 
 STARTUP_DATASET = Dataset("postgres://public/startup_succes")
-
+COLUMNS = "(funding_rounds, founder_experience_years, team_size, market_size_billion, product_traction_users, burn_rate_million, revenue_million, investor_type, sector, founder_background, outcome)"
 with DAG(
     dag_id='startup_pipeline_load',
     start_date=datetime(2024, 1, 1),
@@ -36,7 +36,9 @@ with DAG(
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
-            'pg_isready -h localhost -p 5432 -U alexslobodskoj -d postgres'
+            'pg_isready -h localhost -p 5432 '
+            '-U {{ var.value.DB_USER }} '
+            '-d {{ var.value.DB_NAME }}'
         ),
         execution_timeout=timedelta(minutes=10),
         retries=3,
@@ -49,10 +51,10 @@ with DAG(
     load_csv = BashOperator(
     task_id='load_csv',
     bash_command=(
-        'psql -U alexslobodskoj -d postgres -c '
+        'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
         '"TRUNCATE TABLE public.startup_succes;" && '
-        'psql -U alexslobodskoj -d postgres -c '
-        '"\COPY public.startup_succes (funding_rounds, founder_experience_years, team_size, market_size_billion, product_traction_users, burn_rate_million, revenue_million, investor_type, sector, founder_background, outcome) FROM \'/Users/alexslobodskoj/Data_Analyst/startup_success.csv\' CSV HEADER DELIMITER \',\';"'
+        'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
+        '"\\COPY public.startup_succes ' + COLUMNS + ' FROM \'{{ var.value.DATA_PATH }}/startup_success.csv\' WITH (FORMAT CSV, HEADER, DELIMITER \',\');"'
     ),
     execution_timeout=timedelta(minutes=10),
     retries=3,
@@ -66,11 +68,11 @@ with DAG(
         task_id='notify_success',
         bash_command=(
             'python3 -c "'
-            'from airflow.models import Variable; '
             'import requests; '
-            'webhook = Variable.get(\'SLACK_WEBHOOK_URL\'); '
-            'requests.post(webhook, json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n*DAG:* startup_pipeline_load\\nAll models built and tests passed.\'}, timeout=10)'
-            '"'
+            'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
+            'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
+            '*DAG:* {{ dag.dag_id }}\\n'
+            'All models built and tests passed.\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1),
         retries=3,
