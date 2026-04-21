@@ -13,7 +13,9 @@ with DAG(
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
-            'pg_isready -h localhost -p 5432 -U alexslobodskoj -d postgres'
+            'pg_isready -h localhost -p 5432 '
+            '-U {{ var.value.DB_USER }} '
+            '-d {{ var.value.DB_NAME }}'
         ),
         execution_timeout=timedelta(minutes=10)
     )
@@ -21,8 +23,8 @@ with DAG(
     dbt_run = BashOperator(
         task_id='dbt_run',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt run 2>&1'
         ),
         execution_timeout=timedelta(minutes=10)
@@ -31,8 +33,8 @@ with DAG(
     dbt_test = BashOperator(
         task_id='dbt_test',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt test 2>&1'
         ),
         execution_timeout=timedelta(minutes=10)
