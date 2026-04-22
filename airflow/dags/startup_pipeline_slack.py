@@ -34,7 +34,9 @@ with DAG(
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
-            'pg_isready -h localhost -p 5432 -U alexslobodskoj -d postgres'
+            'pg_isready -h localhost -p 5432 '
+            '-U {{ var.value.DB_USER }} '
+            '-d {{ var.value.DB_NAME }}'
         ),
         execution_timeout=timedelta(minutes=10),
         on_failure_callback=notify_slack_failure
@@ -44,8 +46,8 @@ with DAG(
     dbt_run = BashOperator(
         task_id='dbt_run',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt run 2>&1'
         ),
         execution_timeout=timedelta(minutes=10),
@@ -56,8 +58,8 @@ with DAG(
     dbt_test = BashOperator(
         task_id='dbt_test',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt test 2>&1'
         ),
         execution_timeout=timedelta(minutes=10),
@@ -69,11 +71,11 @@ with DAG(
         task_id='notify_success',
         bash_command=(
             'python3 -c "'
-            'from airflow.models import Variable; '
             'import requests; '
-            'webhook = Variable.get(\'SLACK_WEBHOOK_URL\'); '
-            'requests.post(webhook, json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n*DAG:* startup_pipeline_slack\\nAll models built and tests passed.\'}, timeout=10)'
-            '"'
+            'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
+            'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
+            '*DAG:* {{ dag.dag_id }}\\n'
+            'All models built and tests passed.\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1)
     )
