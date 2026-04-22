@@ -81,7 +81,7 @@ with DAG(
             'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
             'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
             '*DAG:* {{ dag.dag_id }}\\n'
-            'All models built and tests passed.\'}, timeout=10)"'
+            'All models built {{ ds }} and tests passed.\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1),
         retries=3,
