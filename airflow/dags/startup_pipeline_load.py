@@ -54,13 +54,21 @@ with DAG(
         'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
         '"TRUNCATE TABLE public.startup_succes;" && '
         'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
-        '"\\COPY public.startup_succes ' + COLUMNS + ' FROM \'{{ var.value.DATA_PATH }}/startup_success.csv\' WITH (FORMAT CSV, HEADER, DELIMITER \',\');"'
+        '"\\COPY public.startup_succes ' + COLUMNS + ' FROM \'{{ var.value.DATA_PATH }}/startup_success.csv\' WITH (FORMAT CSV, HEADER, DELIMITER \',\');" && '
+        'echo "startup_success.csv|public.startup_succes"'
     ),
+    do_xcom_push=True,
     execution_timeout=timedelta(minutes=10),
     retries=3,
     retry_delay=timedelta(minutes=1),
     on_failure_callback=notify_slack_failure,
     outlets=[STARTUP_DATASET]
+    )
+
+    # Save the table name for the next DAG
+    save_meta = BashOperator(
+        task_id='save_meta',
+        bash_command='airflow variables set last_loaded_table public.startup_success'
     )
 
     # Send success notification when all tasks complete
@@ -69,10 +77,11 @@ with DAG(
         bash_command=(
             'python3 -c "'
             'import requests; '
+            'xcom_val = \'{{ ti.xcom_pull(task_ids="load_csv") }}\'; '
+            'f_name, t_name = xcom_val.split(chr(124)); '
             'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
-            'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
-            '*DAG:* {{ dag.dag_id }}\\n'
-            'All models built and tests passed.\'}, timeout=10)"'
+            'json={\'text\': f\':large_green_circle: File *{f_name}* downloaded in table *{t_name}*\\n'
+            'DAG: *{{ dag.dag_id }}*\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1),
         retries=3,
@@ -80,4 +89,4 @@ with DAG(
     )
 
     # Pipeline order: check db → load csv → notify
-    check_db >> load_csv >> notify_success
+    check_db >> load_csv >> save_meta >> notify_success
