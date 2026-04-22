@@ -28,14 +28,16 @@ with DAG(
     schedule='0 2 * * *',
     start_date=datetime(2024, 1, 1),
     catchup=False,
-    description='dbt pipeline with Slack notifications'
+    description='dbt pipeline with TriggerDagRunOperator'
 ) as dag:
 
     # Check if PostgreSQL is available before running dbt
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
-            'pg_isready -h localhost -p 5432 -U alexslobodskoj -d postgres'
+            'pg_isready -h localhost -p 5432 '
+            '-U {{ var.value.DB_USER }} '
+            '-d {{ var.value.DB_NAME }}'
         ),
         execution_timeout=timedelta(minutes=10),
         retries=3,
@@ -47,8 +49,8 @@ with DAG(
     dbt_run_staging = BashOperator(
         task_id='dbt_run_staging',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt run --select staging 2>&1'
         ),
         execution_timeout=timedelta(minutes=10),
@@ -69,8 +71,8 @@ with DAG(
     dbt_test = BashOperator(
         task_id='dbt_test',
         bash_command=(
-            'source /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/dbt-env/bin/activate && '
-            'cd /Users/alexslobodskoj/Documents/GitHub/Portfolio/dbt-project/startups && '
+            'source {{ var.value.ENV_PATH }}/bin/activate && '
+            'cd {{ var.value.PROJECT_PATH }} && '
             'dbt test 2>&1'
         ),
         execution_timeout=timedelta(minutes=10),
@@ -84,11 +86,11 @@ with DAG(
         task_id='notify_success',
         bash_command=(
             'python3 -c "'
-            'from airflow.models import Variable; '
             'import requests; '
-            'webhook = Variable.get(\'SLACK_WEBHOOK_URL\'); '
-            'requests.post(webhook, json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n*DAG:* startup_pipeline_trigger\\nAll models built and tests passed.\'}, timeout=10)'
-            '"'
+            'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
+            'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
+            '*DAG:* {{ dag.dag_id }}\\n'
+            'All models built and tests passed.\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1),
         retries=3,
