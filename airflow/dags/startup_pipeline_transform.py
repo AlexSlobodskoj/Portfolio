@@ -107,10 +107,10 @@ with DAG(
         bash_command=(
             'python3 -c "'
             'import requests; '
+            't_name = \'{{ var.value.last_loaded_table }}\'; '
             'requests.post(\'{{ var.value.SLACK_WEBHOOK_URL }}\', '
-            'json={\'text\': \':large_green_circle: *Pipeline completed successfully*\\n'
-            '*DAG:* {{ dag.dag_id }}\\n'
-            'All models built and tests passed.\'}, timeout=10)"'
+            'json={\'text\': f\':large_green_circle: All dbt tasks have been completed for the table *{t_name}*\\n'
+            'DAG: *{{ dag.dag_id }}*\'}, timeout=10)"'
         ),
         execution_timeout=timedelta(minutes=1),
         retries=3,
