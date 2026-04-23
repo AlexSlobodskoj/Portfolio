@@ -31,6 +31,16 @@ with DAG(
     catchup=False,
     description='Load startup data from CSV to PostgreSQL'
 ) as dag:
+    
+    # Checking for the existence of a file
+    check_file = BashOperator(
+        task_id='check_file',
+        bash_command='ls {{ var.value.DATA_PATH }}/startup_success.csv',
+        execution_timeout=timedelta(minutes=10),
+        retries=3,
+        retry_delay=timedelta(minutes=1),
+        on_failure_callback=notify_slack_failure
+    )
 
     # Check if PostgreSQL is available before running dbt
     check_db = BashOperator(
@@ -89,4 +99,4 @@ with DAG(
     )
 
     # Pipeline order: check db → load csv → notify
-    check_db >> load_csv >> save_meta >> notify_success
+    [check_db, check_file] >> load_csv >> save_meta >> notify_success
