@@ -5,4 +5,4 @@ sources:
     database: postgres
     schema: public
     tables:
-      - name: startup_succes
+      - name: startup_success

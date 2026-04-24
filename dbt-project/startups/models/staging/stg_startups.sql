@@ -18,4 +18,4 @@ select
     founder_background,
     outcome,
     created_at
-from {{ source('public', 'startup_succes') }}
+from {{ source('public', 'startup_success') }}
