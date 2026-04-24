@@ -46,9 +46,11 @@ with DAG(
     check_db = BashOperator(
         task_id='check_db',
         bash_command=(
-            'pg_isready -h localhost -p 5432 '
-            '-U {{ var.value.DB_USER }} '
-            '-d {{ var.value.DB_NAME }}'
+            'pg_isready '
+            '-h {{ conn.postgres_conn.host }} '
+            '-p {{ conn.postgres_conn.port }} '
+            '-U {{ conn.postgres_conn.login }} '
+            '-d {{ conn.postgres_conn.schema }}'
         ),
         execution_timeout=timedelta(minutes=10),
         retries=3,
@@ -61,11 +63,23 @@ with DAG(
     load_csv = BashOperator(
     task_id='load_csv',
     bash_command=(
-        'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
-        '"TRUNCATE TABLE public.startup_succes;" && '
-        'psql -h localhost -U {{ var.value.DB_USER }} -d {{ var.value.DB_NAME }} -c '
-        '"\\COPY public.startup_succes ' + COLUMNS + ' FROM \'{{ var.value.DATA_PATH }}/startup_success.csv\' WITH (FORMAT CSV, HEADER, DELIMITER \',\');" && '
-        'echo "startup_success.csv|public.startup_succes"'
+        # Set password from Connection to environment variable for non-interactive psql session
+        'export PGPASSWORD="{{ conn.postgres_conn.password }}" && '
+
+        # Clear existing data before loading new batch
+        'psql -h {{ conn.postgres_conn.host }} '
+        '-p {{ conn.postgres_conn.port }} '
+        '-U {{ conn.postgres_conn.login }} '
+        '-d {{ conn.postgres_conn.schema }} '
+        '-c "TRUNCATE TABLE public.startup_success;" && '
+
+        # Perform high-speed data ingestion from local CSV file
+        'psql -h {{ conn.postgres_conn.host }} '
+        '-p {{ conn.postgres_conn.port }} '
+        '-U {{ conn.postgres_conn.login }} '
+        '-d {{ conn.postgres_conn.schema }} '
+        '-c "\\COPY public.startup_success ' + COLUMNS + ' FROM \'{{ var.value.DATA_PATH }}/startup_success.csv\' WITH (FORMAT CSV, HEADER, DELIMITER \',\');" && '
+        'echo "startup_success.csv|public.startup_success"'
     ),
     do_xcom_push=True,
     execution_timeout=timedelta(minutes=10),
