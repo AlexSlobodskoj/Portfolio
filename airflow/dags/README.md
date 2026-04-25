@@ -7,7 +7,7 @@ The pipeline covers the full data lifecycle: ingestion from CSV, transformation 
 
 The project consists of 9 DAGs that progressively demonstrate increasingly advanced Airflow patterns:
 
-**Data Ingestion** — `startup_pipeline_load` loads raw CSV data into PostgreSQL using native `COPY` command for high-speed bulk ingestion. Pre-flight checks validate both file existence and database availability before any data movement begins.
+**Data Ingestion** — loads raw CSV data into PostgreSQL using native `COPY` command for high-speed bulk ingestion. Pre-flight checks validate both file existence and database availability before any data movement begins.
 
 **Data Transformation** — dbt models are executed in three explicit layers: `staging → intermediate → marts`. Each layer runs as a separate Airflow task, providing granular visibility and failure isolation across the transformation chain.
 
@@ -28,7 +28,7 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 
 **Dataset-driven scheduling** — `startup_pipeline_transform` triggers automatically when `startup_pipeline_load` writes to the `STARTUP_DATASET`, implementing data-aware DAG chaining without time-based polling.
 
-**TriggerDagRunOperator** — `startup_pipeline_trigger` launches a child DAG and waits for its completion before continuing, demonstrating cross-DAG orchestration.
+**TriggerDagRunOperator** — `startup_pipeline_trigger` launches a child DAG `startup_pipeline_run` and waits for its completion before continuing, demonstrating cross-DAG orchestration.
 
 **Jinja templating** — all credentials and paths are injected at runtime via `{{ var.value.X }}` and `{{ conn.postgres_conn.X }}`, keeping secrets out of code.
 
@@ -58,7 +58,7 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 | `startup_pipeline_checkdb` | `0 2 * * *` | Pipeline with pre-flight database health check |
 
 
-## [CI](https://github.com/AlexSlobodskoj/Portfolio/blob/main/.github/workflows/ci.yml)
+## [Continuous Integration (CI)](https://github.com/AlexSlobodskoj/Portfolio/blob/main/.github/workflows/ci.yml)
 
 GitHub Actions workflow runs on every push:
 
