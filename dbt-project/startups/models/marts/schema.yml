@@ -9,4 +9,5 @@ models:
       - name: outcome
         tests:
           - accepted_values:
-              values: ['IPO', 'Acquisition', 'Failure']
+              arguments:
+                values: ['IPO', 'Acquisition', 'Failure']
