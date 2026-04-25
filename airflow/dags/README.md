@@ -2,7 +2,6 @@
 
 The pipeline covers the full data lifecycle: ingestion from CSV, transformation through dbt layers, data quality testing, and operational monitoring.
 
----
 
 ## Pipeline Architecture
 
@@ -14,7 +13,6 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 
 **Data Quality** — `dbt test` runs automatically after every transformation to validate data integrity before downstream consumers can access the results.
 
----
 
 ## Key Technologies
 
@@ -25,7 +23,6 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 | PostgreSQL | Target database; health-checked via `pg_isready` before every run |
 | Slack Webhooks | Real-time failure and success notifications via `on_failure_callback` |
 
----
 
 ## Airflow Patterns Demonstrated
 
@@ -48,25 +45,23 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 
 **Callback-based alerting** — `on_failure_callback` sends structured Slack messages with DAG name, task ID, execution date, and direct log URL.
 
----
 
 ## DAG Overview
 
 | DAG | Schedule | Description |
 |---|---|---|
-| `startup_pipeline` | `0 2 * * *` | Basic dbt run + test pipeline |
-| `startup_pipeline_load` | `0 1 * * *` | CSV ingestion to PostgreSQL with Dataset output |
-| `startup_pipeline_transform` | Dataset trigger | dbt transformation triggered by load completion |
-| `startup_pipeline_layers` | `0 2 * * *` | Explicit staging → intermediate → marts layers |
+| `startup_pipeline` | `0 2 * * *` | Set execution_timeout for dbt tasks |
+| `startup_pipeline_load` | `0 1 * * *` | Main DAG to load CSV into PostgreSQL with Dataset output |
+| `startup_pipeline_transform` | Dataset trigger | Subordinate DAG triggered by Dataset updates for run dbt tasks |
+| `startup_pipeline_layers` | `0 2 * * *` | Launching 'dbt run' by layers: staging → intermediate → marts |
 | `startup_pipeline_retry` | `0 2 * * *` | Full pipeline with retry logic and Slack alerts |
-| `startup_pipeline_slack` | `0 2 * * *` | Pipeline with success and failure notifications |
-| `startup_pipeline_trigger` | `0 2 * * *` | Cross-DAG orchestration via TriggerDagRunOperator |
-| `startup_pipeline_run` | Manual | On-demand intermediate + marts rebuild |
+| `startup_pipeline_slack` | `0 2 * * *` | Pipeline with success and failure notifications in Slack  |
+| `startup_pipeline_trigger` | `0 2 * * *` | Cross-DAG orchestration via TriggerDagRunOperator (main DAG) |
+| `startup_pipeline_run` | Manual | Cross-DAG orchestration via TriggerDagRunOperator (subordinate DAG) |
 | `startup_pipeline_checkdb` | `0 2 * * *` | Pipeline with pre-flight database health check |
 
----
 
-## CI/CD
+## CI (https://github.com/AlexSlobodskoj/Portfolio/blob/main/.github/workflows/ci.yml)
 
 GitHub Actions workflow runs on every push:
 
