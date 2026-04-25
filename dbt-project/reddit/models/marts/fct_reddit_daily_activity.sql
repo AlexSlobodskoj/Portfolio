@@ -18,6 +18,8 @@ daily_stats as (
         max(author) as random_active_author 
     from posts
     group by 1, 2, 3
-)
+),
+
+fake_query as (select * from {{ ref('table_that_does_not_exist') }})
 
 select * from daily_stats
