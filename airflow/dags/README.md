@@ -36,10 +36,7 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 
 **XCom** — table name passed between `load_csv` and `save_meta` tasks for downstream reference.
 
-**Parallel task execution** — file check and database check run simultaneously before the load step:
-```python
-[check_db, check_file] >> load_csv
-```
+**Parallel task execution** — file check and database check `[check_db, check_file] >> load_csv` run simultaneously before the load step
 
 **Fault tolerance** — all production tasks configured with `retries=3` and `retry_delay`, plus `execution_timeout` guards against hung processes.
 
