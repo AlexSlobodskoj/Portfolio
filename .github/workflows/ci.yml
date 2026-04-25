@@ -1,0 +1,115 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  # ─────────────────────────────────────────
+  # 1. Python linting
+  # ─────────────────────────────────────────
+  lint:
+    name: Lint Python (ruff)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff
+        run: ruff check airflow/dags/
+
+  # ─────────────────────────────────────────
+  # 2. DAG integrity check
+  # ─────────────────────────────────────────
+  dag-integrity:
+    name: DAG import check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Airflow
+        run: |
+          pip install "apache-airflow==2.9.3" \
+            --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.3/constraints-3.11.txt"
+
+      - name: Check DAGs import without errors
+        env:
+          AIRFLOW_HOME: /tmp/airflow
+        run: |
+          airflow db migrate --quiet
+          python -c "
+          import os, sys
+          from airflow.models import DagBag
+
+          dag_folder = 'airflow/dags'
+          bag = DagBag(dag_folder=dag_folder, include_examples=False)
+
+          if bag.import_errors:
+              for path, error in bag.import_errors.items():
+                  print(f'ERROR in {path}:\n{error}')
+              sys.exit(1)
+
+          print(f'OK — {len(bag.dags)} DAG(s) imported successfully')
+          "
+
+  # ─────────────────────────────────────────
+  # 3. dbt compile — both projects
+  # ─────────────────────────────────────────
+  dbt-compile:
+    name: dbt compile
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # Replace with the exact folder names of your two dbt projects
+        project:
+          - dbt-project/reddit
+          - dbt-project/startups
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt
+        run: pip install dbt-core dbt-postgres
+
+      - name: dbt compile — ${{ matrix.project }}
+        working-directory: ${{ matrix.project }}
+        env:
+          # dbt requires profiles.yml for compile but does not connect to a real DB.
+          # Dummy credentials are used — compile only validates SQL, no connection is made.
+          DBT_PROFILES_DIR: .
+        run: |
+          # Create a minimal profiles.yml if one is not present in the repo
+          if [ ! -f profiles.yml ]; then
+            cat > profiles.yml <<EOF
+          default:
+            target: ci
+            outputs:
+              ci:
+                type: postgres
+                host: localhost
+                user: ci
+                password: ci
+                port: 5432
+                dbname: ci
+                schema: ci
+                threads: 1
+          EOF
+          fi
+
+          dbt compile --profiles-dir . --target ci
