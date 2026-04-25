@@ -67,3 +67,7 @@ GitHub Actions workflow runs on every push:
 - **dbt parse** — both dbt projects are parsed to verify SQL syntax and `ref()` references
 
 All three jobs run in parallel. No manual checks required.
+
+## Local Development
+
+All DAGs were developed and tested locally on macOS. Airflow and dbt run in a Python virtual environment, with PostgreSQL installed locally as the target database. `BashOperator` is used throughout instead of `PythonOperator` due to a macOS-specific issue. Environment-specific paths and credentials are managed through Airflow Variables and Connections, keeping the DAG code fully portable across environments.
