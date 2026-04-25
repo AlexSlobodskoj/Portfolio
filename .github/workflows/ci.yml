@@ -87,10 +87,10 @@ jobs:
           echo "Found projects: $projects"
 
   # ─────────────────────────────────────────
-  # 4. dbt compile — one job per project
+  # 4. dbt parse — one job per project
   # ─────────────────────────────────────────
-  dbt-compile:
-    name: dbt compile — ${{ matrix.project }}
+  dbt-parse:
+    name: dbt parse — ${{ matrix.project }}
     runs-on: ubuntu-latest
     needs: discover-dbt
     strategy:
@@ -106,11 +106,11 @@ jobs:
       - name: Install dbt
         run: pip install dbt-core dbt-postgres
 
-      - name: dbt compile
+      - name: dbt parse
         working-directory: ${{ matrix.project }}
         env:
-          # dbt requires profiles.yml for compile but does not connect to a real DB.
-          # Dummy credentials are used — compile only validates SQL, no connection is made.
+          # dbt requires profiles.yml for parse but does not connect to a real DB.
+          # Dummy credentials are used — parse only validates SQL, no connection is made.
           DBT_PROFILES_DIR: .
         run: |
           # Read profile name from dbt_project.yml and create matching profiles.yml
@@ -137,4 +137,4 @@ jobs:
                 threads: 1
           EOF
 
-          dbt compile --profiles-dir . --target ci
+          dbt parse --profiles-dir . --target ci
