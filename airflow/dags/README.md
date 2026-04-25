@@ -61,7 +61,7 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 | `startup_pipeline_checkdb` | `0 2 * * *` | Pipeline with pre-flight database health check |
 
 
-## CI (https://github.com/AlexSlobodskoj/Portfolio/blob/main/.github/workflows/ci.yml)
+## [CI](https://github.com/AlexSlobodskoj/Portfolio/blob/main/.github/workflows/ci.yml)
 
 GitHub Actions workflow runs on every push:
 
