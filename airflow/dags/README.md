@@ -54,7 +54,7 @@ The project consists of 9 DAGs that progressively demonstrate increasingly advan
 | `startup_pipeline_retry` | `0 2 * * *` | Full pipeline with retry logic and Slack alerts |
 | `startup_pipeline_slack` | `0 2 * * *` | Pipeline with success and failure notifications in Slack  |
 | `startup_pipeline_trigger` | `0 2 * * *` | Cross-DAG orchestration via TriggerDagRunOperator (main DAG) |
-| `startup_pipeline_run` | Manual | Cross-DAG orchestration via TriggerDagRunOperator (subordinate DAG) |
+| `startup_pipeline_run` | Trigger | Cross-DAG orchestration via TriggerDagRunOperator (subordinate DAG) |
 | `startup_pipeline_checkdb` | `0 2 * * *` | Pipeline with pre-flight database health check |
 
 
