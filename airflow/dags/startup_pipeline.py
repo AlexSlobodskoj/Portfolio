@@ -1,7 +1,6 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
-from airflow.operators.nonexistent import FakeOperator
 
 with DAG(
     dag_id='startup_pipeline',
