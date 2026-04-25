@@ -1,6 +1,6 @@
 # ELT Orchestration with Apache Airflow & dbt
 
-A portfolio project demonstrating production-ready ELT pipeline orchestration for startup analytics data. The pipeline covers the full data lifecycle: ingestion from CSV, transformation through dbt layers, data quality testing, and operational monitoring.
+The pipeline covers the full data lifecycle: ingestion from CSV, transformation through dbt layers, data quality testing, and operational monitoring.
 
 ---
 
