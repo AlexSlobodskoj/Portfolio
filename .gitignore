@@ -1,8 +1,5 @@
 .DS_Store
 .gitignore
-Credit_Bank/.ipynb_checkpoints/credit_score-checkpoint.ipynb
-Yandex_Music/.ipynb_checkpoints/music_big_city-checkpoint.ipynb
-Scooter_Rental/.ipynb_checkpoints/scooter_rental-checkpoint.ipynb
-Real_estate/.ipynb_checkpoints/real-estate.ipynb
+**/.ipynb_checkpoints/
 airflow/.python-version
 airflow/airflow-webserver.pid
