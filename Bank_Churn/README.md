@@ -1,5 +1,9 @@
 # Анализ оттока клиентов банка (учебный проект)
 
+[Bank customer churn analysis in HTML](https://alexslobodskoj.github.io/Portfolio/Bank_Churn/bank_churn_en.html)
+
+[Bank customer churn analysis in Jupyter Notebook](https://github.com/AlexSlobodskoj/Portfolio/blob/main/Bank_Churn/bank_churn_en.ipynb)
+
 [Анализ оттока клиентов банка в HTML](https://alexslobodskoj.github.io/Portfolio/Bank_Churn/bank_churn.html)
 
 [Анализ оттока клиентов банка в Jupiter Notebook](https://github.com/AlexSlobodskoj/Portfolio/blob/main/Bank_Churn/bank_churn.ipynb)
